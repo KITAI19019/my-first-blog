@@ -8,16 +8,13 @@
             <h1><a href="/">KITAI Blogs(测试)</a></h1>
         </header>
 
-        <article>
-            <time>发布日期：2024年7月30日下午3：57</time>
-            <h2><a href="">第一篇</a></h2>
-            <p>测试内容1</p>
-        </article>
+      {% for post in posts %}
+          <article>
+             <time>发布日期: {{ post.published_date }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+             <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
 
-        <article>
-            <time>发布日期：同上</time>
-            <h2><a href="">第二篇</a></h2>
-            <p>测试内容2</p>
-        </article>
     </body>
 </html>
