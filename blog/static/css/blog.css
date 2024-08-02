@@ -10,13 +10,14 @@ body {
     background-position: center center; /* 将背景图片居中 */
     padding-left: 15px;
     font-family: 'Lobster', sans-serif; /* 示例字体 */
-    /*background-color: rgba(255, 255, 255, 0.5); /* 50%透明度的白色背景 */
-    /*background-blend-mode: overlay; /* 将背景图片和背景颜色混合 */
+    background-color: rgba(255, 255, 255, 0.5); /* 50%透明度的白色背景 */
+    background-blend-mode: overlay; /* 将背景图片和背景颜色混合 */
 }
 
 
+
 .page-header {
-    background-color: #ffe149;
+    background-color: #f3ff80;
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
@@ -26,7 +27,7 @@ body {
 .page-header h1 a,
 .page-header h1 a:visited,
 .page-header h1 a:active {
-    color: #ffffff;
+    color: #ff4848;
     font-size: 36pt;
     text-decoration: none;
 }
