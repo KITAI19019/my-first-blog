@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm
-from django.shortcuts import redirect
 from django.urls import reverse
+from django.http import HttpResponseForbidden
+
+
 # Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -47,5 +49,8 @@ def post_edit(request, pk):
 #删除文章
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    post.delete()
-    return redirect(reverse('post_list'))
+    if request.method == "POST":
+        post.delete()
+        return redirect('post_list')
+    else:
+        return HttpResponseForbidden("无法删除")

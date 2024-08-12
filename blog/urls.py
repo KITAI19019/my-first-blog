@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.views.decorators.csrf import csrf_protect
+from django.shortcuts import get_object_or_404, redirect
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
@@ -9,3 +11,9 @@ urlpatterns = [
     path('post/<int:pk>/delete/', views.post_delete, name='post_delete'),
 
 ]
+
+@csrf_protect
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('post_list')
